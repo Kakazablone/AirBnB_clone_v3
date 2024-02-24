@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 '''Module containing instructions for the flask blueprint app_views'''
 from api.v1.views import app_views
-from api import mapped_classes
+from api.v1.views import mapped_classes
 from flask import jsonify, abort, request, make_response
 from models import storage
 
