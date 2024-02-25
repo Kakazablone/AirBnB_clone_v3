@@ -14,7 +14,7 @@ def all_reviews(place_id):
     if content is None:
         abort(404)
     else:
-        info = content.places
+        info = content.reviews
         rqd_info = []
         for item in info:
             rqd_info.append(item.to_dict())

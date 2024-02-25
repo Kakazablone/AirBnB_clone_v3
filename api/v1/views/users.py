@@ -67,6 +67,7 @@ def update_specified_user(user_id):
         update_dict.pop("id", None)
         update_dict.pop("created_at", None)
         update_dict.pop("updated_at", None)
+        update_dict.pop("email", None)
         for key, value in update_dict.items():
             setattr(content, key, value)
         content.save()
