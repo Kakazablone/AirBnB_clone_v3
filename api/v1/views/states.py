@@ -51,8 +51,6 @@ def delete_spcific_state(state_id):
         abort(404)
 
     storage.delete(state)
-    storage.save()
-
     return make_response(jsonify({}), 200)
 
 

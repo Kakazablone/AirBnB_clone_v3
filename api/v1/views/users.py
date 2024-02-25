@@ -42,7 +42,7 @@ def get_specific_user(user_id):
         return jsonify(content.to_dict())
 
 
-@app_views.route('/users/<User_id>',
+@app_views.route('/users/<user_id>',
                  strict_slashes=False, methods=['DELETE'])
 def delete_spcific_user(user_id):
     '''Delete a specific User else raise an error'''
@@ -51,11 +51,10 @@ def delete_spcific_user(user_id):
         abort(404)
     else:
         storage.delete(content)
-        storage.save()
         return jsonify({}), 200
 
 
-@app_views.route('/users/<User_id>', strict_slashes=False, methods=['PUT'])
+@app_views.route('/users/<user_id>', strict_slashes=False, methods=['PUT'])
 def update_specified_user(user_id):
     '''Update a sepcific User as identified by ID'''
     content = storage.get("User", user_id)

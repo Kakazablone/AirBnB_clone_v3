@@ -50,7 +50,6 @@ def delete_spcific_amenity(amenity_id):
         abort(404)
     else:
         storage.delete(content)
-        storage.save()
         return jsonify({}), 200
 
 
