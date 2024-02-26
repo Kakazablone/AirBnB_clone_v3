@@ -68,6 +68,6 @@ def update_specified_amenity(amenity_id):
         update_dict.pop("created_at", None)
         update_dict.pop("updated_at", None)
         for key, value in update_dict.items():
-            setattr(content, key, value)
+            setattr(content, key, str(value))
         content.save()
         return jsonify(content.to_dict()), 200
