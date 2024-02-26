@@ -81,9 +81,8 @@ class DBStorage:
         '''
         if isinstance(cls, str):
             cls = classes.get(cls, None)
-        
-        return self.all(cls).get(f"{cls.__name__}.{id}", None)
 
+        return self.all(cls).get(f"{cls.__name__}.{id}", None)
 
     def count(self, cls=None):
         '''Counts how many objects of the type cls being passed'''

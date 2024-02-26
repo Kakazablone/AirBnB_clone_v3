@@ -75,7 +75,7 @@ class FileStorage:
         '''
         if isinstance(cls, str):
             cls = classes.get(cls, None)
-        
+
         return self.all(cls).get(f"{cls.__name__}.{id}", None)
 
     def count(self, cls=None):
