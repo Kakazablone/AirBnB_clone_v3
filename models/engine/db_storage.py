@@ -79,15 +79,15 @@ class DBStorage:
         '''Retrieves an object based on the class (cls) passed
         and the id (id) passed
         '''
-        cls_dict = self.all(cls)
+        if cls not in classes.values():
+            return None
 
-        if len(cls_dict) == 0:
-            return None
-        key = cls.__name__ + '.' + id
-        if key in cls_dict:
-            return cls_dict[key]
-        else:
-            return None
+        all_cls = models.storage.all(cls)
+        for value in all_cls.values():
+            if (value.id == id):
+                return value
+
+        return None
 
     def count(self, cls=None):
         '''Counts how many objects of the type cls being passed'''
