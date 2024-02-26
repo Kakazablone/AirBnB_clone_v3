@@ -83,7 +83,6 @@ class DBStorage:
 
         if len(cls_dict) == 0:
             return None
-
         key = cls.__name__ + '.' + id
         if key in cls_dict:
             return cls_dict[key]

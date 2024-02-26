@@ -66,8 +66,7 @@ class BaseModel:
         if "updated_at" in new_dict:
             new_dict["updated_at"] = new_dict["updated_at"].strftime(time)
         new_dict["__class__"] = self.__class__.__name__
-        if "_sa_instance_state" in new_dict:
-            del new_dict["_sa_instance_state"]
+        new_dict.pop("_sa_instance_state", None)
         return new_dict
 
     def delete(self):
