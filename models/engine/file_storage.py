@@ -75,16 +75,11 @@ class FileStorage:
         '''
         cls_dict = self.all(cls)
 
-        if cls_dict is None:
+        if len(cls_dict) == 0:
             return None
-
         key = cls.__name__ + '.' + id
-        obj = cls_dict.get(key, None)
-
-        if obj:
-            # If the object is found, return its JSON representation
-            obj_dict = obj.to_dict()
-            return json.dumps(obj_dict)
+        if key in cls_dict:
+            return cls_dict[key]
         else:
             return None
 
