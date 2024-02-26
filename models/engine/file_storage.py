@@ -76,7 +76,7 @@ class FileStorage:
         if cls not in classes.values():
             return None
         from models import storage
-        
+
         all_cls = storage.all(cls)
         for value in all_cls.values():
             if (value.id == id):
