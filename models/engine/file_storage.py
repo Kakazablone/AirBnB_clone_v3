@@ -73,12 +73,20 @@ class FileStorage:
         '''Retrieves an object based on the class (cls) passed
         and the id (id) passed
         '''
-        if cls in classes.values() and id and isinstance(id, str):
-            d_obj = self.all(cls)
-            for key, value in d_obj.items():
-                if key.split(".")[1] == id:
-                    return value
-        return None
+        cls_dict = self.all(cls)
+
+        if cls_dict is None:
+            return None
+
+        key = cls.__name__ + '.' + id
+        obj = cls_dict.get(key, None)
+        
+        if obj:
+            # If the object is found, return its JSON representation
+            obj_dict = obj.to_dict()
+            return json.dumps(obj_dict)
+        else:
+            return None
 
     def count(self, cls=None):
         '''Counts how many objects of the type cls being passed'''
