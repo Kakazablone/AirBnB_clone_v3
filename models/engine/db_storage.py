@@ -81,13 +81,9 @@ class DBStorage:
         '''
         if cls not in classes.values():
             return None
-
-        all_cls = models.storage.all(cls)
-        for value in all_cls.values():
-            if (value.id == id):
-                return value
-
-        return None
+        cls_dict = models.storage.all(cls)
+        key = "{}.{}".format(cls.__name__, id)
+        return cls_dict.get(key, None)
 
     def count(self, cls=None):
         '''Counts how many objects of the type cls being passed'''

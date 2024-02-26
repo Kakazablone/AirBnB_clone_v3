@@ -59,7 +59,7 @@ class FileStorage:
             pass
 
     def delete(self, obj=None):
-        """delete obj from __objects if it’s inside"""
+        """delete obj from __objects if it's inside"""
         if obj is not None:
             key = obj.__class__.__name__ + '.' + obj.id
             if key in self.__objects:
@@ -76,13 +76,9 @@ class FileStorage:
         if cls not in classes.values():
             return None
         from models import storage
-
-        all_cls = storage.all(cls)
-        for value in all_cls.values():
-            if (value.id == id):
-                return value
-
-        return None
+        cls_dict = storage.all(cls)
+        key = "{}.{}".format(cls.__name__, id)
+        return cls_dict.get(key, None)
 
     def count(self, cls=None):
         '''Counts how many objects of the type cls being passed'''
