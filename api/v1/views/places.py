@@ -67,6 +67,7 @@ def delete_spcific_place(place_id):
         abort(404)
     else:
         storage.delete(content)
+        storage.save()
         return jsonify({}), 200
 
 

@@ -62,6 +62,7 @@ def delete_spcific_review(review_id):
         abort(404)
     else:
         storage.delete(content)
+        storage.save()
         return jsonify({}), 200
 
 

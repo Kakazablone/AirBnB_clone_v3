@@ -73,12 +73,10 @@ class FileStorage:
         '''Retrieves an object based on the class (cls) passed
         and the id (id) passed
         '''
-        if cls not in classes.values():
-            return None
-        from models import storage
-        cls_dict = storage.all(cls)
-        key = "{}.{}".format(cls.__name__, id)
-        return cls_dict.get(key, None)
+        if isinstance(cls, str):
+            cls = classes.get(cls, None)
+        
+        return self.all(cls).get(f"{cls.__name__}.{id}", None)
 
     def count(self, cls=None):
         '''Counts how many objects of the type cls being passed'''
