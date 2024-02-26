@@ -86,7 +86,7 @@ class DBStorage:
 
         key = cls.__name__ + '.' + id
         obj = cls_dict.get(key, None)
-        
+
         if obj:
             # If the object is found, remove sa_instance_state
             obj_dict = obj.to_dict()

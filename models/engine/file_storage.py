@@ -80,7 +80,7 @@ class FileStorage:
 
         key = cls.__name__ + '.' + id
         obj = cls_dict.get(key, None)
-        
+
         if obj:
             # If the object is found, return its JSON representation
             obj_dict = obj.to_dict()
