@@ -1,10 +1,14 @@
 #!/usr/bin/python3
-'''Flask application serving pages:/api/v1/status'''
+'''
+Flask application serving pages:
+/api/v1/status
+'''
 from api.v1.views import app_views
 from flask import Flask, make_response, jsonify
 from flask_cors import CORS
 from models import storage
 from os import getenv
+
 app = Flask(__name__)
 app.register_blueprint(app_views)
 
