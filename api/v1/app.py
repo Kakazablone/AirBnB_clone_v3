@@ -15,13 +15,17 @@ app.register_blueprint(app_views)
 
 @app.errorhandler(404)
 def not_found(error):
-    '''Handles page not found for API'''
+    '''
+    Handles page not found for API
+    '''
     return make_response(jsonify({'error': 'Not found'}), 404)
 
 
 @app.teardown_appcontext
 def close_storage(exception):
-    '''Closes instance of storage being used'''
+    '''
+    Closes instance of storage being used
+    '''
     storage.close()
 
 
