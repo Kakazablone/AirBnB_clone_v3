@@ -30,6 +30,8 @@ def close_storage(exception):
 
 
 if __name__ == "__main__":
+    """
+    """
     CORS(app, resources={r"/*": {"origins": "0.0.0.0"}})
     host = getenv('HBNB_API_HOST', default="0.0.0.0")
     port = int(getenv('HBNB_API_PORT', default=5000))
